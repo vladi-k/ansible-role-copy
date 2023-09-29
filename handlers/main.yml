@@ -1,0 +1,8 @@
+---
+- name: Run copy_files_handler
+  ansible.builtin.command:
+    cmd: "{{ item.1 }}"
+  when: item.0.changed
+  listen: copy_files_handler
+  loop: "{{ query('ansible.builtin.subelements', __copy_files.results, 'item.handlers', {'skip_missing': True}) }}"
+  no_log: "{{ copy_files_no_log }}"

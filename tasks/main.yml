@@ -26,3 +26,6 @@
   loop: "{{ copy_files }}"
   tags:
     - copy_files
+  register: __copy_files
+  notify:
+    - copy_files_handler
