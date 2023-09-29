@@ -1,5 +1,7 @@
 ---
 galaxy_info:
+  role_name: cooy
+  namespace: vladi_k
   author: Vladimir Vasilev (@vladi-k)
   description: Copy files to remote system
   license: GPLv3

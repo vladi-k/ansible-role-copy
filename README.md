@@ -19,6 +19,9 @@ copy_files:
     owner: root
     group: root
     mode: 0755
+    handlers:
+      - run-something-after-copy.sh
+      - another-one.sh
 ```
 * `copy_files_no_log` - boolean to hide task output (no_log).
 
@@ -40,6 +43,9 @@ Example Playbook
         owner: root
         group: root
         mode: 0755
+        handlers:
+          - run-something-after-copy.sh
+          - another-one.sh
   roles:
     - ansible-role-copy
 ```
