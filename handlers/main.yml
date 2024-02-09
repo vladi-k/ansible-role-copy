@@ -4,5 +4,6 @@
     cmd: "{{ item.1 }}"
   when: item.0.changed
   listen: copy_files_handler
+  # yamllint disable-line rule:line-length
   loop: "{{ query('ansible.builtin.subelements', __copy_files.results, 'item.handlers', {'skip_missing': True}) }}"
   no_log: "{{ copy_files_no_log }}"

@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  role_name: cooy
+  role_name: copy
   namespace: vladi_k
   author: Vladimir Vasilev (@vladi-k)
   description: Copy files to remote system

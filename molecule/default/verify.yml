@@ -1,0 +1,22 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Get content from /tmp/test_content_handler.log
+      ansible.builtin.slurp:
+        src: /tmp/test_content_handler.log
+      register: __content_handler
+
+    - name: Get content from /tmp/test_src_handler.log
+      ansible.builtin.slurp:
+        src: /tmp/test_src_handler.log
+      register: __src_handler
+
+    - name: Assert it
+      ansible.builtin.assert:
+        that:
+          # yamllint disable-line rule:line-length
+          - __content_handler.content | b64decode | trim == 'content handler works'
+          - __src_handler.content | b64decode | trim == 'src handler works'
