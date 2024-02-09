@@ -1,0 +1,20 @@
+---
+- name: Converge
+  hosts: all
+  gather_facts: false
+  vars:
+    copy_files:
+      - dest: /tmp/test_content.sh
+        content: |
+          #!/bin/bash
+          echo content handler works > /tmp/test_content_handler.log
+        mode: "0775"
+        handlers:
+          - /tmp/test_content.sh
+      - dest: /tmp/test_src.sh
+        src: test_src.sh
+        mode: "0775"
+        handlers:
+          - /tmp/test_src.sh
+  roles:
+    - ansible-role-copy
